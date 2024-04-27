@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,26 +25,70 @@
 
         #canvas {
             width: 800px;
-            height: 600px;
+            height: 650px;
 
             background-color: white;
         }
+
+        /* Style for radio button container */
+        div {
+            margin-bottom: 0px;
+            /* Add some spacing between the container and other elements */
+        }
+
+        /* Style for radio buttons */
+        input[type="radio"] {
+            display: none;
+            /* Hide the default radio button */
+        }
+
+        /* Style for radio button labels */
+        label {
+            display: inline-block;
+            /* Make labels appear in line */
+            margin-right: 10px;
+            /* Add spacing between labels */
+            padding: 5px 10px;
+            /* Add padding to make labels clickable */
+            background-color: #f0f0f0;
+            /* Background color */
+            border: 1px solid #ccc;
+            /* Border */
+            border-radius: 5px;
+            /* Rounded corners */
+            cursor: pointer;
+            /* Change cursor to pointer on hover */
+        }
+
+        /* Style for checked radio button label */
+        input[type="radio"]:checked+label {
+            background-color: #3399ff;
+            /* Change background color */
+            color: white;
+            /* Change text color */
+        }
     </style>
 </head>
+
 <body>
-    
+
     <div id="canvas">
-    <!-- <div id="titlespace"></div> -->
 
-    <!-- Hiding this year dropdown for now because 
-    its functionality is not working properly
-    <select id="modelYearDropdown">
-        <option value="all">All Years</option>
-    </select> -->
+        <h4>Choose your attribute for Y:</h4>
+        <div>
+            <input type="radio" name="option" value="horsepower" id="horsepower" checked> <label for="horsepower">Avg.
+                Horsepower</label>
+            <input type="radio" name="option" value="displacement" id="displacement"> <label for="displacement">Avg.
+                Displacement</label>
+            <input type="radio" name="option" value="weight" id="weight"> <label for="weight">Avg. Weight</label>
+            <input type="radio" name="option" value="mpg" id="mpg"> <label for="mpg">Avg. MPG</label>
+        </div>
 
-        <svg width="800" height="800"></svg>
+
+        <svg width="1000" height="1000"></svg>
     </div>
 
     <script src="barchart_script.js"></script>
 </body>
+
 </html>
