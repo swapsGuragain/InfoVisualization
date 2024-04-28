@@ -3,10 +3,10 @@
 <html>
     <head>
         <title>Info Viz Plot</title>
-        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
         
         <style>
-            div {
+            body {
                 border: 1px solid #080000;
                 margin: 20px;
                 padding: 15px;
@@ -14,7 +14,20 @@
         </style>
     </head>
     <body>
-        <div id="visualization"></div>
+        <h3>Pie chart comparing all manufacturers:</h3>
+        <div id="visualization">
+            <h4>Choose your attribute:</h4>
+            <div>
+                <input type="radio" name="option" value="mpg" id="mpg" checked> 
+                    <label for="mpg">Avg. MPG</label>
+                <input type="radio" name="option" value="horsepower" id="horsepower"> 
+                    <label for="horsepower">Avg. Horsepower</label>
+                <input type="radio" name="option" value="displacement" id="displacement"> 
+                    <label for="displacement">Avg. Displacement</label>
+                <input type="radio" name="option" value="weight" id="weight"> 
+                    <label for="weight">Avg. Weight</label>
+            </div>
+        </div>
         <script src="script.js"></script>
     </body>
     </html>
