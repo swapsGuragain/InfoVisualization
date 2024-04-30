@@ -26,21 +26,18 @@ function drawPieChart(attribute){
             d => d.Origin
         );
 
-
         const margin = {top: 0, right: 10, bottom: 10, left: 10},
             width = 700 - margin.left - margin.right,
             height = 600 - margin.top - margin.bottom;
 
         // Select the SVG container and remove any existing elements
         var svg = d3.select("div").selectAll("svg").remove();
+        var legend = d3.select("div").selectAll("legend").remove();
 
 
         var svg = d3.select("div").append("svg")
             .attr("width", width)
             .attr("height", height);
-
-        
-        // svg.selectAll("path").remove();
 
         var pie = d3.pie().value(function(d){
             if (attribute === "displacement") {
@@ -64,29 +61,44 @@ function drawPieChart(attribute){
             .enter()
                 .append("path")
             .attr("d", d3.arc()
-                .innerRadius(90)
-                .outerRadius(200))
+                .innerRadius(50)
+                .outerRadius(150))
             .attr("fill", function(d, i){
                 return color(i);
             });
 
-        g.selectAll("text")
+        var legend = svg.selectAll(".legend")
+            .data(color.domain())
+            .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+        // Draw legend squares
+        legend.append("rect")
+            .attr("x", width - 18)
+            .attr("width", 18)
+            .attr("height", 18)
+            .style("fill", color);
+
+        // Draw legend text
+        legend.append("text")
             .data(pie)
-            .enter().append("text")
-            // .attr("transform", d => `translate(${arc.centroid(d)})`)
-            .attr("transform", function(d) { 
-                var centroid = d3.arc().centroid(d);
-                if (isNaN(centroid[0]) || isNaN(centroid[1])) {
-                    var fallbackX = width / 20; // Center horizontally
-                    var fallbackY = height / 20; // Place at 1/4 of the height from the top
-                    return "translate(" + fallbackX + "," + fallbackY + ")";
-                }
-                return "translate(" + centroid + ")";
-            })
+            .attr("x", width - 24)
+            .attr("y", 9)
             .attr("dy", ".35em")
+            .style("text-anchor", "end")
             .text(function(d) { 
-                return d.data[0];
-             });
+                if (attribute === "displacement") {
+                    return (d.data[0]+"  "+ d.data[1].displacement.toFixed(2));
+                  } else if (attribute === "weight") {
+                    return (d.data[0]+"  "+ d.data[1].weight.toFixed(2));
+                  } else if (attribute === "horsepower") {
+                    return (d.data[0]+"  "+ d.data[1].horsepower.toFixed(2));
+                  } else {
+                    return (d.data[0]+"  "+ d.data[1].mpg.toFixed(2));
+                  }
+                return (d.data[0]); 
+            });
     });
 
 }
