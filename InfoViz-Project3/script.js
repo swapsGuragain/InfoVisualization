@@ -23,7 +23,7 @@ function drawPieChart(attribute){
               acceleration: d3.mean(v, d => parseFloat(d.Acceleration)),
               weight: d3.mean(v, d => parseFloat(d.Weight))
             }),
-            d => d.Origin
+            d => d.Cylinders
         );
 
         const margin = {top: 0, right: 10, bottom: 10, left: 10},
@@ -89,13 +89,13 @@ function drawPieChart(attribute){
             .style("text-anchor", "end")
             .text(function(d) { 
                 if (attribute === "displacement") {
-                    return (d.data[0]+"  "+ d.data[1].displacement.toFixed(2));
+                    return (d.data[0]+",  "+ d.data[1].displacement.toFixed(2));
                   } else if (attribute === "weight") {
-                    return (d.data[0]+"  "+ d.data[1].weight.toFixed(2));
+                    return (d.data[0]+",  "+ d.data[1].weight.toFixed(2));
                   } else if (attribute === "horsepower") {
-                    return (d.data[0]+"  "+ d.data[1].horsepower.toFixed(2));
+                    return (d.data[0]+",  "+ d.data[1].horsepower.toFixed(2));
                   } else {
-                    return (d.data[0]+"  "+ d.data[1].mpg.toFixed(2));
+                    return (d.data[0]+",  "+ d.data[1].mpg.toFixed(2));
                   }
                 return (d.data[0]); 
             });
