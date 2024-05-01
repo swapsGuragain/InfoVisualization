@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D3 Barchart</title>
+    <title>Information Visualization</title>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <style>
         * {
@@ -19,6 +19,7 @@
             background-color: #dee2e6;
 
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -67,13 +68,33 @@
             color: white;
             /* Change text color */
         }
+
+        /* Add styles for the course information section */
+        #course-info {
+            width: 100%;
+            height: 200px;
+            background-color: #3399ff;
+            color: white;
+            padding: 110px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <div id="course-info">
+        <h2>Information Visualization</h2>
+        <p>Instructor: Yao Zhou, Spring 2024</p>
+        <p>Project 3 by Group 5 (Mosaic)</p>
+        <br>
+        Choose a type of visualization: 
+        <button id="barChartButton">Bar Chart</button>
+        <button id="pieChartButton">Pie Chart</button>
+        <button id="scatterPlotButton">Scatter Plot</button>
+    </div>
 
     <div id="canvas">
-
         <h4>Choose your attribute for Y:</h4>
         <div>
             <input type="radio" name="option" value="horsepower" id="horsepower" checked> <label for="horsepower">Avg.
@@ -88,7 +109,7 @@
         <svg width="1000" height="1000"></svg>
     </div>
 
-    <script src="barchart_script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
