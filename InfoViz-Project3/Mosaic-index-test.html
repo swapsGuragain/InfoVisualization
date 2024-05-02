@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dashboards</title>
+    <style>
+        * { margin: 3; padding: 0; box-sizing: border-box; }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #dee2e6;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: auto 1fr 1fr;
+            gap: 20px;
+            width: 95%;
+            max-width: 1200px;
+            max-height: 800px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+        .chart, .options {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .options { grid-column: span 1; } /* Span across both columns */
+        label, select {
+            margin-bottom: 15px;
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            width: 100%;
+        }
+        input[type="radio"]:checked + label {
+            background-color: #3399ff;
+            color: white;
+        }
+        input[type="radio"] { display: none; }
+        h4 { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="options">
+            <h4>Choose Vehicle Specification:</h4>
+            <input type="radio" name="option" value="horsepower" id="horsepower" checked>
+                <label for="horsepower">Horsepower</label>
+            <input type="radio" name="option" value="displacement" id="displacement">
+                <label for="displacement">Displacement</label>
+            <input type="radio" name="option" value="weight" id="weight">
+                <label for="weight">Weight</label>
+            <input type="radio" name="option" value="mpg" id="mpg">
+                <label for="mpg">MPG</label>
+            <input type="radio" name="option" value="acceleration" id="acceleration">
+                    <label for="acceleration">Acceleration</label>
+            <input type="radio" name="option" value="cylinders" id="cylinders">
+                <label for="cylinders">Cylinders</label>
+
+            <h4>Filters:</h4>
+            <label for="modelYear">Select Model Year:</label>
+            <select id="modelYear">
+                <option value="all">All</option>
+                <!-- Model years will be populated here dynamically -->
+            </select>
+            <label for="manufacturer">Select Manufacturer:</label>
+            <select id="manufacturer">
+                <option value="all">All</option>
+                <!-- Manufacturers will be populated here dynamically -->
+            </select>
+        </div>
+        <div id="chart1" class="chart">Chart1 is visible</div>
+        <div id="chart2" class="chart">Chart2 is visible</div>
+        <div id="chart3" class="chart">Chart3 is visible</div>
+
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="Dotplot-script.js"></script>
+    <script src="PieChart-script.js"></script>
+    <script src="BarChart-script.js"></script>
+    <script src="Dashboard.js"></script>
+
+</body>
+</html>
+
+
+    
+
