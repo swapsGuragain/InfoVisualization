@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: #dee2e6;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #canvas {
+            width: 800px;
+            height: 650px;
+
+            background-color: white;
+        }
+
+        /* Style for radio button container */
+        div {
+            margin-bottom: 0px;
+            /* Add some spacing between the container and other elements */
+        }
+
+        /* Style for radio buttons */
+        input[type="radio"] {
+            display: none;
+            /* Hide the default radio button */
+        }
+
+        /* Style for radio button labels */
+        label {
+            display: inline-block;
+            /* Make labels appear in line */
+            margin-right: 10px;
+            /* Add spacing between labels */
+            padding: 5px 10px;
+            /* Add padding to make labels clickable */
+            background-color: #f0f0f0;
+            /* Background color */
+            border: 1px solid #ccc;
+            /* Border */
+            border-radius: 5px;
+            /* Rounded corners */
+            cursor: pointer;
+            /* Change cursor to pointer on hover */
+        }
+
+        /* Style for checked radio button label */
+        input[type="radio"]:checked+label {
+            background-color: #3399ff;
+            /* Change background color */
+            color: white;
+            /* Change text color */
+        }
+
+        /* Add styles for the course information section */
+        #course-info {
+            width: 100%;
+            height: 200px;
+            background-color: #3399ff;
+            color: white;
+            padding: 110px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: inline-block;
+            background: rgb(212, 10, 182);
+            color: #fff;
+            padding: 5px px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="course-info">
+        <h2>Information Visualization</h2>
+        <p>Instructor: Yao Zhou, Spring 2024</p>
+        <p>Project 3 by Group 5 (Mosaic)</p>
+        <br>
+        Choose a type of visualization: 
+        <!-- <button id="barChartButton">Bar Chart</button>
+        <button id="pieChartButton">Pie Chart</button>
+        <button id="scatterPlotButton">Scatter Plot</button> -->
+        <a href="index.html">Barchart</a>
+        <a href="plot.html">Pie-chart</a>
+        <a href="dotplot.html">ScatterPlot</a>
+    </div>
+
+    <div id="canvas">
+        <h4>Choose your attribute for Y:</h4>
+        <div>
+            <input type="radio" name="option" value="horsepower" id="horsepower" checked> <label for="horsepower">Avg.
+                Horsepower</label>
+            <input type="radio" name="option" value="displacement" id="displacement"> <label for="displacement">Avg.
+                Displacement</label>
+            <input type="radio" name="option" value="weight" id="weight"> <label for="weight">Avg. Weight</label>
+            <input type="radio" name="option" value="mpg" id="mpg"> <label for="mpg">Avg. MPG</label>
+        </div>
+
+
+        <svg width="1000" height="1000"></svg>
+    </div>
+
+    <script src="barchart_script.js"></script>
+</body>
+
+</html>

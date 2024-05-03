@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Info Viz Plot</title>
+        <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+        
+        <style>
+            body {
+                border: 1px solid #080000;
+                margin: 20px;
+                padding: 15px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="course-info">
+            <h2>Information Visualization</h2>
+            <p>Instructor: Yao Zhou, Spring 2024</p>
+            <p>Project 3 by Group 5 (Mosaic)</p>
+            
+            Choose a type of visualization: 
+            <!-- <button id="barChartButton">Bar Chart</button>
+            <button id="pieChartButton">Pie Chart</button>
+            <button id="scatterPlotButton">Scatter Plot</button> -->
+            <a href="index.html">Barchart</a>
+            <a href="plot.html">Pie-chart</a>
+            <a href="dotplot.html">ScatterPlot</a>
+        </div>
+        <h3>Pie chart for all number of cylinders :</h3>
+        <div id="visualization">
+            <h4>Choose your attribute:</h4>
+            <div>
+                <input type="radio" name="option" value="mpg" id="mpg" checked> 
+                    <label for="mpg">Avg. MPG</label>
+                <input type="radio" name="option" value="horsepower" id="horsepower"> 
+                    <label for="horsepower">Avg. Horsepower</label>
+                <input type="radio" name="option" value="displacement" id="displacement"> 
+                    <label for="displacement">Avg. Displacement</label>
+                <input type="radio" name="option" value="weight" id="weight"> 
+                    <label for="weight">Avg. Weight</label>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+    </html>
